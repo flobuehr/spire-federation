@@ -86,11 +86,11 @@ $ kubectl cp ~/partA.bundle spire/spire-server-0:/
 **Step 7.** Set bundle
 Execute the following command in the CLI connected to the **Participant-A** cluster
 ```
-$ ./federate.sh partb.org -path partB.bundle
+$ ./federate.sh partb.org partB.bundle
 ```
 Execute the following command in the CLI connected to the **Participant-B** cluster
 ```
-$ ./federate.sh parta.org -path partA.bundle
+$ ./federate.sh parta.org partA.bundle
 ```
 
 **Step 8.** Check in both clusters if bundle is refreshed and available
@@ -111,6 +111,15 @@ $ cd participant-b/
 $ ./create-node-registration-entry.sh
 ```
 
+## Playground
+In order to test federation and defederation of trust the following can be used for testing.
+#### Scripts
+```
+$ cd ~/spire-federation-master/
+$ ls -als
+```
+The scripts `federate.sh` and `defederate.sh` occur in the output. `$ ./federate.sh $1 $2` with $1 being the trust domain to be federated and $2 being the corresponding trust bundle sets the federation in the SPIRE server of the K8s cluster connected to.
+`$ ./defederate.sh $1` with $1 being the trust domain to be defederated removes the trust bundle and federation from the SPIRE server of the K8s cluster connected to. Please note that `defederate.sh` also removes all SPIFFE ID registrations federating with the trust domain being removed.
 
 ## Automatic setup (highly dependend on environment)
 #### Requirements:
