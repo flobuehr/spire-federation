@@ -1,6 +1,6 @@
 # Federated SPIRE
 
-This demo uses SPIFFE/SPIRE https://github.com/spiffe/spire and is based on the SPIRE + Envoy tutorial https://github.com/spiffe/spire-tutorials/tree/master/k8s/envoy-x509 and the SPIRE federation tutorial https://github.com/spiffe/spire-tutorials/tree/master/docker-compose/federation.
+This demo uses SPIFFE/SPIRE https://github.com/spiffe/spire and is based on the SPIRE federation tutorial https://github.com/spiffe/spire-tutorials/tree/master/docker-compose/federation.
 
 ## Manual setup
 
@@ -120,6 +120,14 @@ $ ls -als
 ```
 The scripts `federate.sh` and `defederate.sh` occur in the output. `$ ./federate.sh $1 $2` with $1 being the trust domain to be federated and $2 being the corresponding trust bundle sets the federation in the SPIRE server of the K8s cluster connected to.
 `$ ./defederate.sh $1` with $1 being the trust domain to be defederated removes the trust bundle and federation from the SPIRE server of the K8s cluster connected to. Please note that `defederate.sh` also removes all SPIFFE ID registrations federating with the trust domain being removed.
+#### Integration
+Several options can be used to integrate with SPIRE to use SPIFFE IDs and SVIDs for mutual authentication and secure communication. The easiest way to move forward with cloud-native workloads could be
+* SPIRE Envoy tutorial https://github.com/spiffe/spire-tutorials/tree/master/k8s/envoy-x509
+Alternatively, the community provides the following client libraries to implement microservices consuming SPIFFE IDs and SVIDs
+* GO lib https://github.com/spiffe/go-spiffe
+* Python lib https://github.com/HewlettPackard/py-spiffe
+* Java lib https://github.com/spiffe/java-spiffe
+* C/C++ lib https://github.com/HewlettPackard/c-spiffe
 
 ## Automatic setup (highly dependend on environment)
 #### Requirements:
