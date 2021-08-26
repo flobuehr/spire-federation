@@ -1,6 +1,6 @@
 # Federated SPIRE
 
-This demo is based on the SPIRE + Envoy tutorial https://github.com/spiffe/spire-tutorials/tree/master/k8s/envoy-x509 and the SPIRE federation tutorial https://github.com/spiffe/spire-tutorials/tree/master/docker-compose/federation.
+This demo uses SPIFFE/SPIRE https://github.com/spiffe/spire and is based on the SPIRE + Envoy tutorial https://github.com/spiffe/spire-tutorials/tree/master/k8s/envoy-x509 and the SPIRE federation tutorial https://github.com/spiffe/spire-tutorials/tree/master/docker-compose/federation.
 
 ## Manual setup
 
